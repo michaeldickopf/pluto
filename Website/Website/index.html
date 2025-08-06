@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pluto SecureLock</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div class="navbar-container">
+    <nav class="nav">
+        <a href="#">Home</a>
+        <a href="#">The problem</a>
+        <a href="#">About Pluto</a>
+    </nav>
+    <a href="#" class="contact-btn">Contact Us</a>
+</div>
+
+<div class="signup-container">
+    <a target="_blank">
+        <img src="images/Pluto_logo-02.png" alt="logo" width="90%">
+    </a>
+    <div class="signup">
+        <p>Break free from cloud vaults. Pluto is the<br/>local-first password manager that trusts no<br/>one but <strong><font style="color: #DCFC73;">YOU</font></strong></p>
+        <p><br/>Join the Beta!<br/></p>
+        <form action="mail-submition.php" method="post">
+            <div class="form-group">
+                <input type="text" title="Drop your email." class="form-control" id="username"
+                    name="username" aria-describedby="emailHelp">
+            </div>
+        </form>
+        <button type="submit" class="btn btn-primary">
+        Join the Waiting List
+        </button>
+    </div>
+</div>
+
+
+
+
+
+
+  <section class="tagline container">
+    <h2>Un-Cloud Your Passwords.</h2>
+    <p>No servers. No snoops. <strong>Just you</strong> and your keys.</p>
+  </section>
+
+  <section class="problem-section container">
+    <h2>The Problem</h2>
+    <h3>You reuse passwords. Don’t lie.</h3>
+    <div class="cards">
+      <div class="card">
+        <div class="card-icon">🔑</div>
+        <p>We all face significant challenges in managing secure, unique passwords across multiple devices.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">⌨️</div>
+        <p>Remembering and typing long, complex passwords is frustrating and time-consuming.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">☁️</div>
+        <p>Plus, let’s be real... Storing passwords online increases the risk of hacking, raising concerns about data security and user trust.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🔒</div>
+        <p>While password managers aim to simplify this process, they offer limited help unless the user is already logged in.</p>
+      </div>
+    </div>
+    <p class="problem-note">Your passwords are currently “safe” in the cloud. Think that’s secure? Ask the 33 million LastPass users who got burned.</p>
+  </section>
+
+  <div class="marquee">
+    <span>OUR MANIFESTO</span><span>OUR MANIFESTO</span>
+  </div>
+
+  <section class="trust-section container">
+    <h2>Trust math, not companies.</h2>
+    <div class="trust-grid">
+      <div>Local-first encryption (AES - 256)</div>
+      <div>Keys never leave your device.</div>
+      <div>Peer-to-peer sync over LAN</div>
+      <div>0 servers, 0 metadata.</div>
+      <div>Open source & reproducible builds</div>
+      <div>Inspect, verify, fork.</div>
+      <div>No telemetry by default</div>
+      <div>Privacy is the product, not a setting.</div>
+    </div>
+  </section>
+
+  <section class="about-section">
+    <div class="container">
+      <h2>About Pluto</h2>
+      <p class="intro">A simple plug-and-play device that securely stores your passwords offline and types them for you — all you need is your fingerprint to unlock access.</p>
+      <div class="about-content">
+        <div class="feature-buttons">
+          <button>Encrypt locally</button>
+          <button>Fingerprint Authentication</button>
+          <button>Dead-Man Switch Recovery</button>
+        </div>
+        <div class="feature-details">
+          <p>Master secret sealed with hardware-backed keys (Secure Enclave/TPM).</p>
+          <p>No more passwords to remember, just tap with a finger.</p>
+          <p>Printable recovery kit using Shamir secret-sharing; no cloud escrow.</p>
+        </div>
+      </div>
+      <p class="about-note">Pluto keeps your data so well, even <em>we don’t have it.</em></p>
+    </div>
+  </section>
+
+  <section class="waitlist-section container">
+    <h2>Wait-list counter:</h2>
+    <div class="counter">
+      <div class="digit"></div>
+      <div class="digit"></div>
+      <div class="digit"></div>
+      <div class="digit"></div>
+    </div>
+    <p>10 Rebels already enlisted.</p>
+  </section>
+
+  <footer class="container">
+    <div class="footer">
+      <div>plut<span class="lock">🔒</span> • Created by Pluto Secure Lock 2025</div>
+      <div>Backed by TUM & Universität der Bundeswehr München</div>
+    </div>
+  </footer>
+
+  <script>
+    // Render the wait-list counter as "0010"
+    const count = 10;
+    const digits = String(count).padStart(4, '0').split('');
+    document.querySelectorAll('.digit').forEach((el, i) => {
+      el.textContent = digits[i];
+    });
+  </script>
+</body>
+</html>
