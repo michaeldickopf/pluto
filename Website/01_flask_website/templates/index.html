@@ -24,15 +24,11 @@
     <div class="signup">
         <p>Break free from cloud vaults. Pluto is the<br/>local-first password manager that trusts no<br/>one but <strong><font style="color: #DCFC73;">YOU</font></strong></p>
         <p><br/>Join the Beta!<br/></p>
-        <form action="mail-submition.php" method="post">
-            <div class="form-group">
-                <input type="text" title="Drop your email." class="form-control" id="username"
-                    name="username" aria-describedby="emailHelp">
-            </div>
-        </form>
-        <button type="submit" class="btn btn-primary">
-        Join the Waiting List
-        </button>
+      <form action = "/submit_form" method = "post">
+        <label for = "mail">Email:</label>
+        <input type = "text" id = "mail" name = "email"></input> <br><br>
+        <input type="submit" class="btn btn-primary" value="Join the Waiting List">
+      </form>
     </div>
 </div>
   <section class="tagline container">
