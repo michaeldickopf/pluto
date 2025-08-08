@@ -1,13 +1,15 @@
 ## Steps
 
+
+
+## Linux Installation
+
+
 1. create python venv
+    python -m venv venv
+    source ./venv/bin/activate
+
 2. install pip requirements
-3. run app 
-
-
-python -m venv venv
-source ./venv/bin/activate
-
 
 Install quickly, if its still August 2025:
 
@@ -19,5 +21,7 @@ Install quickly, if its still August 2025:
 If you download this in 2100:
 
     pip install -r requirements.txt
+
+3. run app on localhost 
 
 flask --app 01_flask_test run --debug
