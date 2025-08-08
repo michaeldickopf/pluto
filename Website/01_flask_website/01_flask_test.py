@@ -1,8 +1,9 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, redirect, url_for
 import smtplib
 from email.mime.text import MIMEText
 import os
 from dotenv import load_dotenv
+from mail_test import send_email
 
 load_dotenv()
 
@@ -12,6 +13,7 @@ app = Flask(__name__)
     pip install email-to
     pip install flask
     pip install dotenv
+    pip install flask_mail
 '''
 
 # TODO: sanethization
@@ -19,12 +21,14 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    line_count = int(count_csv_lines('mailing_list.csv'))
+    print(line_count)
+    return render_template('index.html', line_count=line_count) # TODO only 4 digit number supported, may break at 10.000 !
 
 
 @app.route('/submit_form', methods=['GET', 'POST'])
 def form_input():
-
+    
     if request.method == "POST":
         req = request.form
         email = request.form['email'] # TODO: sanethize the input field !
@@ -33,28 +37,17 @@ def form_input():
             file.write(email)
             file.write("\n")
         
-        send_one_email(email)
+        # send_email(email, subject='Welcome to Pluto!', html_filepath='email_response.html') # TODO reactivate email sending
+    
 
-    return render_template('index.html')
-
-
-
-def send_one_email(recipient):
-    sender = os.getenv('SMTP_EMAIL')
-    password = os.getenv('SMTP_PASSWORD')
-
-    msg = MIMEText('heloWorld')    
-    msg['Subject'] = 'hi'
-    msg['From'] = sender
-    msg['To'] = recipient
-    with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp_server:
-       smtp_server.login(sender, password)
-       print('login successfull')
-       smtp_server.sendmail(sender, recipients, msg.as_string())
-    print("Message sent!")
+    return redirect(url_for('home'))
 
 
-
+def count_csv_lines(file_path):
+    with open(file_path, 'r', encoding='utf-8') as file:
+        line_count = sum(1 for line in file)
+    return line_count
+    
 
 if __name__ == '__main__':
     app.run(debug=True)

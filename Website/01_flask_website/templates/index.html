@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Pluto SecureLock</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+  <script type="text/javascript">
+      var line_count = {{ line_count }};
+  </script>
+  <script type="text/javascript" src="{{url_for('static', filename='counter.js')}}"></script>
 </head>
 <body>
 
@@ -60,8 +64,16 @@
     <p class="problem-note">Your passwords are currently “safe” in the cloud. Think that’s secure? Ask the 33 million LastPass users who got burned.</p>
   </section>
 
-  <div class="marquee">
-    <span>OUR MANIFESTO</span><span>OUR MANIFESTO</span>
+  <div class="manifesto-banner">
+    <div class="manifesto-text">
+      <!-- Repeated text to create illusion of an endless banner -->
+      <span>Our Manifesto</span><span>Our Manifesto</span><span>Our Manifesto</span>
+      <span>Our Manifesto</span><span>Our Manifesto</span><span>Our Manifesto</span>
+      <span>Our Manifesto</span><span>Our Manifesto</span><span>Our Manifesto</span>
+      <span>Our Manifesto</span><span>Our Manifesto</span><span>Our Manifesto</span>
+      <span>Our Manifesto</span><span>Our Manifesto</span><span>Our Manifesto</span>
+      <span>Our Manifesto</span><span>Our Manifesto</span><span>Our Manifesto</span>
+    </div>
   </div>
 
   <section class="trust-section container">
@@ -99,21 +111,19 @@
   </section>
 
   <section class="waitlist-section container">
-    <h2>Wait-list counter:</h2>
-    <div class="counter">
-      <div class="digit"></div>
-      <div class="digit"></div>
-      <div class="digit"></div>
-      <div class="digit"></div>
-    </div>
-    <p>10 Rebels already enlisted.</p>
+    <h2>
+      Wait-list <span class="highlight">counter:</span>
+    </h2>
+    <div class="counter" id="counter-display"></div>
+    <p><span id="counter-number"></span> Rebels already enlisted.</p>
   </section>
 
   <footer class="container">
     <div class="footer">
-      <div>plut<span class="lock">🔒</span> • Created by Pluto Secure Lock 2025</div>
+      <div>Pluto<span class="lock">🔒</span> • Created by Pluto Secure Lock 2025</div>
       <div>Backed by TUM & Universität der Bundeswehr München</div>
     </div>
   </footer>
+  
 </body>
 </html>
