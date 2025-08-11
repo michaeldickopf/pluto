@@ -9,18 +9,14 @@ load_dotenv()
 
 app = Flask(__name__)
 
-'''requirements
-    pip install email-to
-    pip install flask
-    pip install dotenv
-    pip install flask_mail
-'''
-
 # TODO: sanethization
 # TODO: CSRF token, XSS deflection, ...
 
 @app.route('/')
 def home():
+    if not os.path.exists('mailing_list.csv'):
+        f = open('mailing_list.csv', 'x')
+        f.close()
     line_count = int(count_csv_lines('mailing_list.csv'))
     print(line_count)
     return render_template('index.html', line_count=line_count) # TODO only 4 digit number supported, may break at 10.000 !

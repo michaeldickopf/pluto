@@ -4,6 +4,8 @@
 
 ## Linux Installation
 
+0. Go to project root:
+    cd 01_flask_website/    
 
 1. create python venv
     python -m venv venv
